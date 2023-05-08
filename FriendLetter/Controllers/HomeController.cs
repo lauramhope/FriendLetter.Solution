@@ -1,10 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
 using FriendLetter.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FriendLetter.Controllers
 {
-  public class HomeController : Controller // we tell our program HomeController should inherit functionality from Controller Class
+  public class HomeController : Controller
   {
+
     [Route("/hello")]
     public string Hello() { return "Hello friend!"; }
 
@@ -12,7 +13,7 @@ namespace FriendLetter.Controllers
     public string Goodbye() { return "Goodbye friend."; }
 
     [Route("/")]
-    public ActionResult Letter()
+    public ActionResult Letter() 
     {
       LetterVariable myLetterVariable = new LetterVariable();
       myLetterVariable.Recipient = "Lina";
@@ -26,10 +27,11 @@ namespace FriendLetter.Controllers
     [Route("/postcard")]
     public ActionResult Postcard(string recipient, string sender)
     {
-      LetterVariable myLetterVariable = new LetterVariable();
-      myLetterVariable.Recipient = recipient;
-      myLetterVariable.Sender = sender;
-      return View(myLetterVariable);
+      LetterVariable myLetterVariables = new LetterVariable();
+      myLetterVariables.Recipient = recipient;
+      myLetterVariables.Sender = sender;
+      return View(myLetterVariables);
     }
+
   }
 }

@@ -13,9 +13,6 @@ namespace FriendLetter
 
       WebApplication app = builder.Build();
 
-      // app.UseDeveloperExceptionPage();
-      app.UseHttpsRedirection();
-
       app.UseRouting();
 
       app.MapControllerRoute(
